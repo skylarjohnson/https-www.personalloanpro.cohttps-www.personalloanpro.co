@@ -1,0 +1,55 @@
+---
+description: Everything you need to know about the venue access.
+---
+
+{% extends 'layouts/main/index.njk' %}
+
+{% block content %}
+  {%- set moduleCSS = "/_includes/module.css" -%}
+  {% css page, moduleCSS %}
+  {%- set pageCSS = "/_includes/page.css" -%}
+  {% css page, pageCSS %}
+  {%- set css = "/venue/style.css" -%}
+  {% css page, css %}
+
+  <div class="{% className css, 'header' %}">
+    <div>
+      <h1 id="sessions" class="{% className moduleCSS, 'heading' %} {% className pageCSS, 'heading' %}">{% headingSlug "Venue" %}</h1>
+      <div class="{% className pageCSS, 'heading-extra' %}">
+        <span class="{% className css, 'map-icon' %}">
+          <a href="https://www.google.com/maps/place/Yerba+Buena+Center+for+the+Arts/@37.7856437,-122.4021904,15z/data=!4m5!3m4!1s0x0:0x477290961c219b7c!8m2!3d37.7856437!4d-122.4021904">Map↗</a>
+        </span>
+      </div>
+    </div>
+    <div class="{% className css, 'header-image' %}" >
+      <img src="confboxAsset(assets/square.png)"/>
+    </div>
+  </div>
+
+  <div class="{% className css, 'venue-container' %}">
+    <h2 class="{% className css, 'venue-name' %}">
+      {{conf.venue.name}}
+    </h2>
+    <div class="{% className css, 'venue-info' %}">
+      <div>
+        <p>Opened to the public in 1993, YBCA was founded as the cultural anchor of San Francisco’s Yerba Buena Gardens neighborhood.</p>
+        <p>
+          <b>Address</b><br>
+          700 Howard St<br>
+          San Francisco, CA 94103
+        </p>
+        <h3>Directions</h3>
+        <ul>
+          <div class="{% className css, 'train-icon' %}"><a href="">Subway / metro directions ↗</a></div>
+          <div class="{% className css, 'car-icon' %}"><a href="">Taxi / car directions ↗</a></div>
+          <div class="{% className css, 'airplane-icon' %}"><a href="">From the airport directions ↗</a></div>
+        </ul>
+      </div>
+      <div>
+        <img src="confboxAsset(assets/venue.jpg)" width="100%" >
+      </div>
+    </div>
+  </div>
+
+  {% include 'faq/index.njk' %}
+{% endblock %}
