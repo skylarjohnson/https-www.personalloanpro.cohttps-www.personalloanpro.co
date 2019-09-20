@@ -8,6 +8,7 @@ speakers:
   - yoav-weiss
 start: 2019/11/12 10:00
 end: 2019/11/12 10:35
+description: How do those features come to be? Who decides which features should be worked on? What's the decision process that leads to shipping them? And how do web standards and other browser engines fit into all of this?
 ---
 
 Welcome to Chrome Dev Summit, where you'll hear about many new and shiny features coming soon to a Chromium-based browser near you!

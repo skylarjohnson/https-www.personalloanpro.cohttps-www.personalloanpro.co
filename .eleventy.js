@@ -31,11 +31,7 @@ function buildScheduleData(sessions, speakers) {
       topics: session.data.topics,
       session: true,
       fileSlug: session.fileSlug,
-      // Accessing the templateContent right now throws an error
-      // but it can be accessed once templates are being processed.
-      get body() {
-        return session.templateContent;
-      },
+      body: session.data.description,
     })),
     ...extraSchedule.map(obj => ({ ...obj })),
   ].map(item => {

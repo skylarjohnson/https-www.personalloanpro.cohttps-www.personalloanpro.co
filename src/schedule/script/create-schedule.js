@@ -1,5 +1,5 @@
 const months = require('./months');
-const { html, safe } = require('../../script/escape-html');
+const { html } = require('../../script/escape-html');
 
 module.exports = function createScheduleHtml(
   items,
@@ -29,21 +29,21 @@ module.exports = function createScheduleHtml(
   }
 
   return html`
-    <section class="${classNameMap['schedule']}">
+    <section class="${classNameMap.schedule}">
       ${days.map(
         ({ date, month, items }, dayNum) => html`
-          <div class="${classNameMap['day']}">
-            <h1 class="${classNameMap['date']}">
-              <span class="${classNameMap['dateName']}">${months[month]}</span>
-              <span class="${classNameMap['dateNumber']}">${date}</span>
+          <div class="${classNameMap.day}">
+            <h1 class="${classNameMap.date}">
+              <span class="${classNameMap.dateName}">${months[month]}</span>
+              <span class="${classNameMap.dateNumber}">${date}</span>
             </h1>
-            <div class="${classNameMap['dayTitle']}">
+            <div class="${classNameMap.dayTitle}">
               Day
-              <span class="${classNameMap['dayNumber']}">${dayNum + 1}</span>
+              <span class="${classNameMap.dayNumber}">${dayNum + 1}</span>
             </div>
 
             <div
-              class="${`${classNameMap['timeLine']} ${classNameMap['dayGap']}`}"
+              class="${`${classNameMap.timeLine} ${classNameMap.dayGap}`}"
             ></div>
 
             ${items.map(item => {
@@ -52,13 +52,13 @@ module.exports = function createScheduleHtml(
               const minutes = sessionDate.getUTCMinutes();
 
               return html`
-                <div class="${classNameMap['timeLine']}">
-                  <div class="${classNameMap['timeLineContent']}">
+                <div class="${classNameMap.timeLine}">
+                  <div class="${classNameMap.timeLineContent}">
                     ${item.icon
                       ? html`
-                          <div class="${classNameMap['iconBubble']}">
+                          <div class="${classNameMap.iconBubble}">
                             <img
-                              class="${classNameMap['icon']}"
+                              class="${classNameMap.icon}"
                               src="${item.icon}"
                               alt=""
                             />
@@ -66,8 +66,8 @@ module.exports = function createScheduleHtml(
                         `
                       : item.speakers
                       ? html`
-                          <div class="${classNameMap['iconBubble']}">
-                            <div class="${classNameMap['avatars']}">
+                          <div class="${classNameMap.iconBubble}">
+                            <div class="${classNameMap.avatars}">
                               ${item.speakers.map(
                                 speaker => html`
                                   <img
@@ -80,37 +80,38 @@ module.exports = function createScheduleHtml(
                           </div>
                         `
                       : html`
-                          <div class="${classNameMap['dot']}"></div>
+                          <div class="${classNameMap.dot}"></div>
                         `}
-                    <h2 class="${classNameMap['time']}">
+                    <h2 class="${classNameMap.time}">
                       <time>
                         ${hours % 12 || 12}${minutes ? ':' + minutes : ''}
-                        <span class="${classNameMap['amPm']}"
+                        <span class="${classNameMap.amPm}"
                           >${hours < 12 ? 'am' : 'pm'}</span
                         >
                       </time>
                     </h2>
                   </div>
                 </div>
-                <div class="${classNameMap['item']}">
+                <div class="${classNameMap.item}">
                   ${item.body
                     ? html`
-                        <a
-                          class="${classNameMap['sessionLink']}"
-                          href="${confPath}sessions/${item.fileSlug}"
-                        >
-                          <div class="${classNameMap['sessionItem']}">
-                            <h3 class="${classNameMap['sessionItemTitle']}">
-                              ${item.title}
-                            </h3>
-                            <div>${safe(item.body)}</div>
+                        <div class="${classNameMap.sessionItem}">
+                          <h3 class="${classNameMap.sessionItemTitle}">
+                            <a
+                              class="${classNameMap.sessionLink}"
+                              href="${confPath}sessions/${item.fileSlug}"
+                              >${item.title}</a
+                            >
+                          </h3>
+                          <div><p>${item.body}</p></div>
+                          <div class="${classNameMap.meta}">
                             ${item.topics
                               ? html`
-                                  <ul class="${classNameMap['topicList']}">
+                                  <ul class="${classNameMap.topicList}">
                                     ${item.topics.map(
                                       topic => html`
                                         <li>
-                                          <div class="${classNameMap['topic']}">
+                                          <div class="${classNameMap.topic}">
                                             ${topic}
                                           </div>
                                         </li>
@@ -119,14 +120,17 @@ module.exports = function createScheduleHtml(
                                   </ul>
                                 `
                               : ''}
+                            <a href="${confPath}sessions/${item.fileSlug}"
+                              >Read more</a
+                            >
                           </div>
-                        </a>
+                        </div>
                       `
                     : html`
                         <h3
-                          class="${`${classNameMap['basicItemTitle']} ${
+                          class="${`${classNameMap.basicItemTitle} ${
                             !item.icon && !item.speakers
-                              ? classNameMap['basicItemTitleDotAlign']
+                              ? classNameMap.basicItemTitleDotAlign
                               : ''
                           }`}"
                         >
@@ -134,11 +138,11 @@ module.exports = function createScheduleHtml(
                         </h3>
                       `}
                 </div>
-                <div class="${classNameMap['rowGap']}"></div>
+                <div class="${classNameMap.rowGap}"></div>
               `;
             })}
 
-            <div class="${classNameMap['end']}"></div>
+            <div class="${classNameMap.end}"></div>
           </div>
         `,
       )}
