@@ -8,7 +8,7 @@ speakers:
   - houssein-djirdeh
 start: 2019/11/12 11:10
 end: 2019/11/12 11:45
-description: This talk covers the team's work with Next.js on build and runtime optimizations, what's next in the pipeline, and our plans for other parts of the ecosystem.
+description: This talk covers the team's work with Next.js on build and runtime optimizations, what's next in the pipeline, and our plans for other parts of the ecosystem…
 ---
 
 Chrome is now an active contributor to the frameworks web ecosystem to improve tools used by developers around the world, including infrastructure and tooling to produce and maintain performant sites as they continue to grow and change.
