@@ -13,7 +13,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.9.0",
     "cssnano": "^4.1.10",
-    "date-and-time": "^0.9.0",
+    "date-and-time": "^0.14.2",
     "del-cli": "^2.0.0",
     "escape-string-regexp": "^2.0.0",
     "find-free-port": "^2.0.0",
