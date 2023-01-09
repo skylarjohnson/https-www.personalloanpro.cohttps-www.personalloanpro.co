@@ -11,7 +11,7 @@
     "serve": "firebase serve --only hosting"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.9.0",
+    "@11ty/eleventy": "^1.0.2",
     "cssnano": "^4.1.10",
     "date-and-time": "^0.9.0",
     "del-cli": "^2.0.0",
